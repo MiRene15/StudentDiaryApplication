@@ -3,7 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using StudentDiary.Infrastructure.Data;
 using StudentDiary.Services.Interfaces;
-// using StudentDiary.Services.Services; // Students will add this when implementing services
+using StudentDiary.Services.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,9 +14,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<StudentDiaryContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// Register services - Students will uncomment these after implementing the services
-// builder.Services.AddScoped<IAuthService, AuthService>();
-// builder.Services.AddScoped<IDiaryService, DiaryService>();
+// Register services
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IDiaryService, DiaryService>();
 
 // Configure session
 builder.Services.AddSession(options =>
