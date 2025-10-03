@@ -1,3 +1,5 @@
+//Configured Services
+
 using Microsoft.EntityFrameworkCore;
 using StudentDiary.Infrastructure.Data;
 using StudentDiary.Services.Interfaces;
