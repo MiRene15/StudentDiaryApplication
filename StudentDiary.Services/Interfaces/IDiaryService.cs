@@ -1,3 +1,5 @@
+//Creation of Interface for Diary Service
+
 using StudentDiary.Services.DTOs;
 
 namespace StudentDiary.Services.Interfaces
