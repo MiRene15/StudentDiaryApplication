@@ -1,3 +1,5 @@
+//Creation of Interface IAuthService for authentication operations
+
 using StudentDiary.Services.DTOs;
 
 namespace StudentDiary.Services.Interfaces
