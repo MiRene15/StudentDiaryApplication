@@ -1,0 +1,42 @@
+@model IEnumerable<StudentDiary.Services.DTOs.DiaryEntryDto>
+@{
+    ViewData["Title"] = "My Diary";
+}
+<h2>My Diary</h2>
+<div class="text-success">@TempData["StatusMessage"]</div>
+<p>
+    <a asp-action="Create" class="btn btn-primary">New Entry</a>
+    <form asp-controller="Auth" asp-action="Logout" method="post" class="d-inline ms-2">
+        @Html.AntiForgeryToken()
+        <button class="btn btn-secondary" type="submit">Logout</button>
+    </form>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Created</th>
+            <th>Last Modified</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.CreatedDate:u</td>
+            <td>@item.LastModifiedDate:u</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                <form asp-action="Delete" method="post" class="d-inline">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+
