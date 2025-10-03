@@ -1,3 +1,6 @@
+//Create DbContext
+
+
 using Microsoft.EntityFrameworkCore;
 using StudentDiary.Infrastructure.Models;
 
