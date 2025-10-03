@@ -2,6 +2,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StudentDiary.Infrastructure.Models
 {
+
+// Create `StudentDiary.Infrastructure/Models/User.cs`:
     public class User
     {
         public int Id { get; set; }
